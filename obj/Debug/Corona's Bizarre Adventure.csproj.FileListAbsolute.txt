@@ -1,6 +1,0 @@
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\bin\Debug\Corona's Bizarre Adventure.exe.config
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\bin\Debug\Corona's Bizarre Adventure.exe
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\bin\Debug\Corona's Bizarre Adventure.pdb
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\obj\Debug\Corona's Bizarre Adventure.csprojAssemblyReference.cache
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\obj\Debug\Corona's Bizarre Adventure.exe
-C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Corona's Bizarre Adventure\obj\Debug\Corona's Bizarre Adventure.pdb

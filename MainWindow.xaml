@@ -1,0 +1,45 @@
+﻿<Window x:Class="CobaWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expressixon/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CobaWPF"
+        xmlns:wpfgraphcontrol="http://mlsagl"
+        mc:Ignorable="d" 
+        WindowState="Normal"
+        Title="Corona's Bizzare Adventure" Height="802.75" Width="1132">
+    <Border Margin="40,40,40,40">
+        <StackPanel>
+            <wpfgraphcontrol:AutomaticGraphLayoutControl x:Name="graphControl" Height="583" Background="IndianRed" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="MapFile" Height="23" TextWrapping="Wrap" Text="Map" Grid.Column="0"/>
+                <Button Content="Browse" Grid.Column="1" Click="MapBrowseButton"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="PopulationFile" Height="23" TextWrapping="Wrap" Text="Population" Grid.Column="0"/>
+                <Button Content="Browse" Grid.Column="1" Click="PopulationBrowseButton"/>
+            </Grid>
+            <TextBox x:Name="TInput" Height="23" TextWrapping="Wrap" Text="10"/>
+            <Button Content="Simulate" Click="SimulateButton"/>
+            <TextBlock x:Name="OutputBox"/>
+        </StackPanel>
+        <!--<Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                    
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                
+            </Grid.RowDefinitions>
+        </Grid>-->
+    </Border>
+</Window>
