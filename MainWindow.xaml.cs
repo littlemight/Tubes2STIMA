@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Threading;
-//using System.Windows.Shapes;
 using Microsoft.Msagl.Drawing;
 using Microsoft.Win32;
 
@@ -62,7 +61,7 @@ namespace CobaWPF
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "C:\\Users\\nomight\\Desktop\\Kuliah\\Stima\\Tubes2\\Corona\'s Bizarre Adventure";
+            openFileDialog1.InitialDirectory = "D:\\kuliah\\repos";
             openFileDialog1.Filter = "txt files (*.txt)|*.txt";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
@@ -80,7 +79,7 @@ namespace CobaWPF
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "C:\\Users\\nomight\\Desktop\\Kuliah\\Stima\\Tubes2\\Corona\'s Bizarre Adventure";
+            openFileDialog1.InitialDirectory = "D:\\kuliah\\repos";
             openFileDialog1.Filter = "txt files (*.txt)|*.txt";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
@@ -155,11 +154,26 @@ namespace CobaWPF
 
         private void SimulateButton(object sender, RoutedEventArgs e)
         {
-            CurTime = int.Parse(this.TInput.Text);
-            OutputBox.Text = CurTime.ToString();
-            ViewGraph();
-            BFSMemo = BFS.RunBFS(CurTime, sourceCity, cities, Population, AdjList);
-            Animate();
+            try
+            {
+                CurTime = int.Parse(this.TInput.Text);
+                OutputBox.Text = CurTime.ToString();
+                ViewGraph();
+                BFSMemo = BFS.RunBFS(CurTime, sourceCity, cities, Population, AdjList);
+                Animate();
+            } catch (Exception err)
+            {
+                MessageBox.Show("[0-9]* pls. Dan pastikan angkanya < 2^32.");
+            }
+        }
+
+        private void PreviousState(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Next(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

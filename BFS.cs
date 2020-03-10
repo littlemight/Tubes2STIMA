@@ -58,16 +58,8 @@ namespace CobaWPF
                     }
                 }
                 ListQ.Add(new Queue<Tuple<string, string>>(q)); 
-                //for (int i = 0; i < ListQ.Count; i++)
-                //{
-                //    Console.WriteLine(i + " " + ListQ[i].Count);
-                //}
                 ListT.Add(new Dictionary<string, int>(T));
             }
-            //for (int i = 0; i < ListQ.Count; i++)
-            //{
-            //    Console.WriteLine(i + " " + ListQ[i].Count);
-            //}
             return Tuple.Create(ListQ, ListT);
         }
 

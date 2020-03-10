@@ -7,7 +7,7 @@
         xmlns:wpfgraphcontrol="http://mlsagl"
         mc:Ignorable="d" 
         WindowState="Normal"
-        Title="Corona's Bizzare Adventure" Height="802.75" Width="1132">
+        Title="Corona's Bizzare Adventure" Height="600" Width="800">
     <Border Margin="40,40,40,40">
         <StackPanel>
             <wpfgraphcontrol:AutomaticGraphLayoutControl x:Name="graphControl" Height="583" Background="IndianRed" />
@@ -29,6 +29,9 @@
             </Grid>
             <TextBox x:Name="TInput" Height="23" TextWrapping="Wrap" Text="10"/>
             <Button Content="Simulate" Click="SimulateButton"/>
+            <Button Content="Previous" Click="PreviousState"/>
+            <TextBlock x:Name="CurrentState"/>
+            <Button Content="Next" Click="PreviousState"/>
             <TextBlock x:Name="OutputBox"/>
         </StackPanel>
         <!--<Grid>

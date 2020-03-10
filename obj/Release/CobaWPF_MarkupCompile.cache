@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-D:\kuliah\repos\obj\Debug\
+D:\kuliah\repos\obj\Release\
 CobaWPF
 none
 false
-DEBUG;TRACE
+TRACE
 D:\kuliah\repos\App.xaml
 11151548125
 
@@ -16,5 +16,5 @@ D:\kuliah\repos\App.xaml
 18-986084808
 MainWindow.xaml;
 
-False
+True
 
