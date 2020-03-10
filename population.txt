@@ -1,5 +1,5 @@
-4 A
-A 1000
-B 5000
-C 1000
-D 1000
+4 Api
+Api 1000
+Banjarmasin 5000
+Cirebon 1000
+Djakarta 1000

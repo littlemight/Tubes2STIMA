@@ -21,13 +21,14 @@ namespace CobaWPF
 {
     public partial class MainWindow : Window
     {
+        int CurState;
         int INF = Convert.ToInt32(1e9);
         int CurTime;
         string sourceCity;
         List<string> cities;
         Dictionary<string, double> Population;
         Dictionary<string, Dictionary<string, double>> AdjList;
-        Tuple<List<Queue<Tuple<string, string>>>, List<Dictionary<string, int>>> BFSMemo;
+        Tuple<List<Queue<Tuple<string, string>>>, List<Dictionary<string, int>>, List<Dictionary<string, Dictionary<string, int>>>> BFSMemo;
         Graph graph;
 
         public MainWindow()
@@ -99,7 +100,7 @@ namespace CobaWPF
             //OutputBox.Text = sourceCity;
         }
 
-        void Animate()
+        int Animate()
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(1000);
@@ -107,6 +108,8 @@ namespace CobaWPF
             timer.Tick += (s, e) =>
             {
                 graphControl.Graph = null;
+                CurState = i;
+                CurrentState.Text = (CurState + 1).ToString() + "/" + BFSMemo.Item1.Count;
                 if (BFSMemo.Item1[i].Count > 0)
                 {
                     Console.WriteLine("CURRENT: " + i + " " + BFSMemo.Item1.Count);
@@ -131,37 +134,136 @@ namespace CobaWPF
                 }
                 graphControl.Graph = graph;
                 OutputBox.ItemsSource = BFSMemo.Item1[i].ToList();
-                //string temp = "";
-                //for (int j = 0; j < BFSMemo.Item1[i].Count; j++)
-                //{
-                //    temp += BFSMemo.Item1[i].ElementAt(j).Item1 + " -> " + BFSMemo.Item1[i].ElementAt(j).Item2 + "\n";
-                //}
-                //Console.WriteLine(temp);
-                //OutputBox.Text = temp;
                 foreach (KeyValuePair<string, int> entry in BFSMemo.Item2[i])
                 {
                     if (entry.Value != INF)
                     {
-
                         graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
                     }
                 }
             };
             timer.Tick += (s, e) =>
             {
-                if (i == BFSMemo.Item1.Count-1) timer.Stop();
+                if (i == BFSMemo.Item1.Count - 1)
+                {
+                    CurrentState.Text = BFSMemo.Item1.Count.ToString() + "/" + BFSMemo.Item1.Count;
+                    timer.Stop();
+                }
                 else i++;
             };
             timer.Start();
+            return BFSMemo.Item1.Count;
         }
 
         private void SimulateButton(object sender, RoutedEventArgs e)
         {
-            CurTime = int.Parse(this.TInput.Text);
-            // OutputBox.Text = CurTime.ToString();
-            ViewGraph();
-            BFSMemo = BFS.RunBFS(CurTime, sourceCity, cities, Population, AdjList);
-            Animate();
+            try
+            {
+                CurTime = int.Parse(this.TInput.Text);
+                ViewGraph();
+                BFSMemo = BFS.RunBFS(CurTime, sourceCity, cities, Population, AdjList);
+                CurState = Animate();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "\nMeaning: [0-9]* pls. Dan pastikan angkanya < 2^32.");
+            }
+        }
+
+        private void PreviousState(object sender, RoutedEventArgs e)
+        {
+            CurState--;
+            if (CurState < 0)
+            {
+                CurState += BFSMemo.Item1.Count;
+            }
+            Console.WriteLine(CurState.ToString());
+            CurrentState.Text = (CurState + 1).ToString() + "/" + BFSMemo.Item1.Count;
+            graphControl.Graph = null;
+            foreach (KeyValuePair<string, Dictionary<string, int>> item in BFSMemo.Item3[CurState])
+            {
+                Node TempNode = graph.FindNode(item.Key);
+                foreach (Edge edge in TempNode.OutEdges.ToList())
+                {
+                    graph.RemoveEdge(edge);
+                }
+                foreach (KeyValuePair<string, int> item2 in item.Value)
+                {
+                    if (item2.Value == -1)
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    }
+                    else if (item2.Value == 0)
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
+                    }
+                    else
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                    }
+                }
+            }
+            graphControl.Graph = graph;
+            OutputBox.ItemsSource = BFSMemo.Item1[CurState].ToList();
+            foreach (KeyValuePair<string, int> entry in BFSMemo.Item2[CurState])
+            {
+                if (entry.Value != INF)
+                {
+                    graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
+                }
+                else
+                {
+                    graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+                }
+            }
+        }
+
+        private void NextState(object sender, RoutedEventArgs e)
+        {
+            CurState++;
+            if (CurState == BFSMemo.Item1.Count)
+            {
+                CurState = 0;
+            }
+            Console.WriteLine(CurState.ToString());
+            CurrentState.Text = (CurState + 1).ToString() + "/" + BFSMemo.Item1.Count;
+            graphControl.Graph = null;
+            foreach (KeyValuePair<string, Dictionary<string, int>> item in BFSMemo.Item3[CurState])
+            {
+                Node TempNode = graph.FindNode(item.Key);
+                foreach (Edge edge in TempNode.OutEdges.ToList())
+                {
+                    graph.RemoveEdge(edge);
+                }
+                foreach (KeyValuePair<string, int> item2 in item.Value)
+                {
+                    if (item2.Value == -1)
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    }
+                    else if (item2.Value == 0)
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Black;
+                    }
+                    else
+                    {
+                        graph.AddEdge(item.Key, item2.Key).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                    }
+                }
+            }
+            graphControl.Graph = graph;
+            OutputBox.ItemsSource = BFSMemo.Item1[CurState].ToList();
+            foreach (KeyValuePair<string, int> entry in BFSMemo.Item2[CurState])
+            {
+                if (entry.Value != INF)
+                {
+                    graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
+                }
+                else
+                {
+                    graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+                }
+            }
         }
     }
 
