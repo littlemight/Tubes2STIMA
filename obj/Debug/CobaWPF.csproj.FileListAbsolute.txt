@@ -18,3 +18,23 @@ C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Random\CobaWPF\obj\Debug\CobaWPF.cs
 C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Random\CobaWPF\obj\Debug\CobaWPF.csproj.CopyComplete
 C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Random\CobaWPF\obj\Debug\CobaWPF.exe
 C:\Users\nomight\Desktop\Kuliah\Stima\Tubes2\Random\CobaWPF\obj\Debug\CobaWPF.pdb
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.csprojAssemblyReference.cache
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\MainWindow.g.cs
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\App.g.cs
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF_MarkupCompile.cache
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF_MarkupCompile.lref
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.exe
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.pdb
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\CobaWPF.exe.config
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\CobaWPF.exe
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\CobaWPF.pdb
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\AutomaticGraphLayout.dll
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\AutomaticGraphLayout.Drawing.dll
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\Microsoft.Msagl.WpfGraphControl.dll
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\MainWindow.baml
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.g.resources
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.Properties.Resources.resources
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.csproj.GenerateResource.cache
+C:\Users\Samuel\OneDrive - Institut Teknologi Bandung\Documents\Institut Teknologi Bandung\Semester 4\Strategi Algoritma\Tubes2STIMA\obj\Debug\CobaWPF.csproj.CopyComplete

@@ -95,13 +95,14 @@ namespace CobaWPF
             sourceCity = temp.Item1;
             cities = temp.Item2;
             Population = temp.Item3;
-            OutputBox.Text = sourceCity;
+            CityInfo.ItemsSource = Population.ToList();
+            //OutputBox.Text = sourceCity;
         }
 
         void Animate()
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Interval = TimeSpan.FromMilliseconds(1000);
             int i = 0;
             timer.Tick += (s, e) =>
             {
@@ -129,18 +130,19 @@ namespace CobaWPF
                     }
                 }
                 graphControl.Graph = graph;
-                OutputBox.Text = "";
-                string temp = "";
-                for (int j = 0; j < BFSMemo.Item1[i].Count; j++)
-                {
-                    temp += BFSMemo.Item1[i].ElementAt(j).Item1 + " -> " + BFSMemo.Item1[i].ElementAt(j).Item2 + "\n";
-                }
-                Console.WriteLine(temp);
-                OutputBox.Text = temp;
+                OutputBox.ItemsSource = BFSMemo.Item1[i].ToList();
+                //string temp = "";
+                //for (int j = 0; j < BFSMemo.Item1[i].Count; j++)
+                //{
+                //    temp += BFSMemo.Item1[i].ElementAt(j).Item1 + " -> " + BFSMemo.Item1[i].ElementAt(j).Item2 + "\n";
+                //}
+                //Console.WriteLine(temp);
+                //OutputBox.Text = temp;
                 foreach (KeyValuePair<string, int> entry in BFSMemo.Item2[i])
                 {
                     if (entry.Value != INF)
                     {
+
                         graph.FindNode(entry.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Red;
                     }
                 }
@@ -156,7 +158,7 @@ namespace CobaWPF
         private void SimulateButton(object sender, RoutedEventArgs e)
         {
             CurTime = int.Parse(this.TInput.Text);
-            OutputBox.Text = CurTime.ToString();
+            // OutputBox.Text = CurTime.ToString();
             ViewGraph();
             BFSMemo = BFS.RunBFS(CurTime, sourceCity, cities, Population, AdjList);
             Animate();

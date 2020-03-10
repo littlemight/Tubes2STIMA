@@ -9,7 +9,7 @@
         WindowState="Normal"
         Title="Corona's Bizzare Adventure" Height="802.75" Width="1132">
     <Border Margin="40,40,40,40">
-        <StackPanel>
+        <!--<StackPanel>
             <wpfgraphcontrol:AutomaticGraphLayoutControl x:Name="graphControl" Height="583" Background="IndianRed" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -30,16 +30,75 @@
             <TextBox x:Name="TInput" Height="23" TextWrapping="Wrap" Text="10"/>
             <Button Content="Simulate" Click="SimulateButton"/>
             <TextBlock x:Name="OutputBox"/>
-        </StackPanel>
-        <!--<Grid>
+        </StackPanel>-->
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition>
-                    
-                </ColumnDefinition>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                
-            </Grid.RowDefinitions>
-        </Grid>-->
+            
+            <Grid Margin="10 10 10 10" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="MapFile" Height="23" TextWrapping="Wrap" Text="Map" Grid.Column="0"/>
+                    <Button Content="..." Click="MapBrowseButton" Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="PopulationFile" Height="23" TextWrapping="Wrap" Text="Population" Grid.Column="0"/>
+                    <Button Content="..." Click="PopulationBrowseButton" Grid.Column="1"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Day" Grid.Column="0" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TInput" Height="23" TextWrapping="Wrap" Text="10" Grid.Column="1"/>
+                </Grid>
+                <DataGrid x:Name="CityInfo" Grid.Row="3" VerticalAlignment="Stretch" RowHeight="60" AutoGenerateColumns="False" Background="Transparent">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Key}" Width="*"/>
+                        <DataGridTextColumn Header="Population" Binding="{Binding Value}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Content="Simulate" Grid.Row="4" Click="SimulateButton"/>
+            </Grid>
+
+            <Grid Margin="10 0 0 10" Grid.Column="1">
+                <wpfgraphcontrol:AutomaticGraphLayoutControl x:Name="graphControl" VerticalContentAlignment="Center" Background="IndianRed" />
+            </Grid>
+
+            <Grid Margin="10 0 0 10" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!--<RowDefinition Height="1*"/>-->
+                        <!--<RowDefinition Height="1*"/>-->
+                    </Grid.RowDefinitions>
+                    <!--<TextBlock x:Name="OutputBox" Text="BFS Queue" HorizontalAlignment="Center" Grid.Row="0"/>-->
+                    <DataGrid x:Name="OutputBox" Grid.Row="0" VerticalAlignment="Stretch" RowHeight="60" AutoGenerateColumns="False" Background="Transparent">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="To" Binding="{Binding Item1}" Width="*"/>
+                            <DataGridTextColumn Header="From" Binding="{Binding Item2}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+        </Grid>
     </Border>
 </Window>
