@@ -1,5 +1,0 @@
-4 Api
-Api 1000
-Banjarmasin 5000
-Cirebon 1000
-Djakarta 1000

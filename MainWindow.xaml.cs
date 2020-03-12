@@ -37,6 +37,7 @@ namespace CobaWPF
         }
         private void ViewGraph()
         {
+            graphControl.Graph = null;
             graph = new Graph();
             foreach (KeyValuePair<string, Dictionary<string, double>> entry1 in AdjList)
             {
@@ -45,6 +46,14 @@ namespace CobaWPF
                 {
                     string to = entry2.Key;
                     graph.AddEdge(from, to);
+                }
+            }
+            foreach (KeyValuePair<string, double> item in Population) 
+            {
+                if (!AdjList.ContainsKey(item.Key)) {
+                    graph.AddNode(item.Key);
+                    graph.FindNode(item.Key).Attr.Shape = Shape.Circle;
+                    graph.FindNode(item.Key).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
                 }
             }
             foreach (KeyValuePair<string, Dictionary<string, double>> entry1 in AdjList)
@@ -157,6 +166,10 @@ namespace CobaWPF
 
         private void SimulateButton(object sender, RoutedEventArgs e)
         {
+            if (CheckMapPop() == false) {
+                MessageBox.Show("Map dan population tidak konsisten\n");
+                return;
+            }
             try
             {
                 CurTime = int.Parse(this.TInput.Text);
@@ -166,8 +179,24 @@ namespace CobaWPF
             }
             catch (Exception err)
             {
-                MessageBox.Show(err + "\nMeaning: [0-9]* pls. Dan pastikan angkanya < 2^32.");
+                MessageBox.Show(err.ToString());
             }
+        }
+
+        private bool CheckMapPop() 
+        {
+            bool check = true;
+            foreach (KeyValuePair<string, Dictionary<string, double>> entry1 in AdjList)
+            {
+                string from = entry1.Key;
+                foreach (KeyValuePair<string, double> entry2 in entry1.Value)
+                {
+                    string to = entry2.Key;
+                    if (Population.ContainsKey(from) == false) check = false; 
+                    if (Population.ContainsKey(to) == false) check = false; 
+                }
+            }
+            return check;
         }
 
         private void PreviousState(object sender, RoutedEventArgs e)

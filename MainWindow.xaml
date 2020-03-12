@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:CobaWPF"
         xmlns:wpfgraphcontrol="http://mlsagl"
         mc:Ignorable="d" 
-        WindowState="Normal"
-        Title="Corona's Bizzare Adventure" Height="802.75" Width="1132">
+        WindowState="Maximized"
+        Title="Corona's Bizzare Adventure" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Border Margin="40,40,40,40">
         <!--<StackPanel>
             <wpfgraphcontrol:AutomaticGraphLayoutControl x:Name="graphControl" Height="583" Background="IndianRed" />
