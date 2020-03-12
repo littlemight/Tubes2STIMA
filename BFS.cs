@@ -30,6 +30,10 @@ namespace CobaWPF
             for (int i = 0; i < cities.Count; i++)
             {
                 T[cities[i]] = INF;
+                if (!AdjList.ContainsKey(cities[i]))
+                {
+                    AdjList[cities[i]] = new Dictionary<string, double>();
+                }
             }
             T[sourceCity] = 0;
 
@@ -65,6 +69,7 @@ namespace CobaWPF
                     if (expectedT <= T[cur.Item2])
                     {
                         T[cur.Item2] = expectedT;
+                        //Console.WriteLine(cur.Item2 + " " + AdjList[cur.Item2].Count);
                         foreach (KeyValuePair<string, double> edge in AdjList[cur.Item2])
                         {
                             q.Enqueue(Tuple.Create(cur.Item2, edge.Key));
